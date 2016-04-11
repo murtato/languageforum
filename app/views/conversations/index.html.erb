@@ -1,0 +1,9 @@
+<h1>Recent Conversations</h1>
+
+<ul>
+  <% @conversations.each do |conversation| %>
+    <li>
+      <strong><%= conversation.time %></strong> - <%= conversation.content %>
+    </li>
+  <% end %>
+</ul>
