@@ -4,6 +4,7 @@
   <% @conversations.each do |conversation| %>
     <li>
       <strong><%= conversation.time %></strong> - <%= conversation.content %>
+      <%= link_to "More info", conversation_path(conversation) %>
     </li>
   <% end %>
 </ul>

@@ -1,5 +1,7 @@
 <h1> <%= @conversation.content %> </h1>
 
-<p>This conversation is titled <%= @conversation.content %> and was started <%= @conversation.time %>.</p>
-
+<p>This conversation is titled <%= @conversation.content %> and was started <%= @conversation.created_at %>.</p>
+<%= @conversation.updated_at %>
+<%= link_to "Edit this conversation's title!", edit_conversation_path(@conversation) %>
+<%= link_to "Delete this Conversation!", conversation_path, method: :delete, data: { confirm: "Are you sure you want to delete this conversation?"} %>
 <%= link_to "Back to All Conversations!", conversations_path %>

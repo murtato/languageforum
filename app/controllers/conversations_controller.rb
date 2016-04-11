@@ -12,24 +12,20 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    @conversation = Conversation.new(params.require(:conversation).permit(:content, :time))
+    @conversation = Conversation.new(conversation.params)
 
     if @conversation.save
-      redirect_to conversations_path
+      redirect_to :conversations
     else
       render :new
     end
   end
 
-  def edit
-    @conversation = Conversation.find(params[:id])
-  end
-
   def update
     @conversation = Conversation.find(params[:id])
 
-    if @conversation.update_attributes(params.require(:conversation).permit(:content, :time))
-      redirect_to conversations_path
+    if @conversation.update_attributes(conversation_params)
+      redirect_to :conversations
     else
       render :edit
     end
@@ -39,6 +35,11 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.find(params[:id])
     @conversation.destroy
     redirect_to conversations_path
+  end
+
+  private
+  def bean_params
+    params.require(:bean).permit(:name, :roast, :origin, :quantity)
   end
 
 end
