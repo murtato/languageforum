@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-  get "conversations/" => "conversations#index"
-  get "conversations/new" => "conversations#new", as: :new_conversation
-  get "conversations/:id" => "conversations#show", as: :conversation
-  post "conversations/" => "conversations#create"
-  get "conversations/:id/edit" => "conversations#edit", as: :edit_conversation
-  patch "conversations/:id" => "conversations#update"
-  delete "conversations/:id" => "conversations#destroy"
-  resources :users, only: [:new, :create]
+  resources :conversations
+  resources :users, except: [:index, :destroy]
+  resources :sessions, only: [:new, :create, :destroy]
+  resources :posts
+  get "/register", to: "users#new"
+  get "/login", to: "sessions#new"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -42,4 +42,6 @@ class ConversationsController < ApplicationController
     params.require(:bean).permit(:name, :roast, :origin, :quantity)
   end
 
+  before_action :authorize, except: [:index, :show]
+# might have to add the before_action line for Posts or Users as well
 end
