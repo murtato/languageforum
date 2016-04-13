@@ -12,7 +12,7 @@ class ConversationsController < ApplicationController
   end
 
   def new
-    @conversation = Conversation.new
+    @conversation = Conversation.create
   end
 
   def create
@@ -31,8 +31,8 @@ class ConversationsController < ApplicationController
 
   def update
     @conversation = Conversation.find(params[:id])
-    if @conversation.update_attributes(conversation_params)
-      redirect_to :conversations
+    if @conversation.update_attributes(params.require(:conversation).permit(:content))
+      redirect_to conversations_path
     else
       render :edit
     end
