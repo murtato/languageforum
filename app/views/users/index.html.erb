@@ -1,0 +1,10 @@
+<h1> Welcome <%= @users.name %>!!!</h1>
+
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <strong> <%= user.name %> </strong>
+      <%= link_to "Your Account", user_path(user) %>
+    </li>
+  <% end %>
+</ul>

@@ -7,13 +7,8 @@
         <%= f.text_field :content %>
     </div>
 
-    <div>
-        <%= f.label :time %>
-        <%= f.text_field :time %>
-    </div>
-
     <%= f.submit "Start new conversation!" %>
 
 <% end %>
 
-<%= link_to "Back to the list!", conversations_path %>
+<%= link_to "Home", conversations_path %>

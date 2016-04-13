@@ -1,6 +1,6 @@
 if Conversation.count == 0
   conversations = Conversation.create([
-    {content: "English/Mandarin Language Exchange in Tustin", time: '2016-04-12'},
+    {content: "Japanese/Mandarin Language Exchange in Culver City", time: '2016-04-12'},
     {content: "English/Spanish Language Exchange in Danville", time: '2016-04-12'}
   ])
 end

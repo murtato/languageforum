@@ -1,15 +1,16 @@
 <h1>Login</h1>
 
 <%= form_tag sessions_path do %>
-  <% flash.each do |key,msg| %>
-    <div><%= msg %></div>
-  <% end %>
+
+<%= link_to "Home", conversations_path %><br><br>
 
   <%= label_tag :email %>
   <%= text_field_tag :email, params[:email] %>
+  <br>
 
   <%= label_tag :password %>
   <%= password_field_tag :password %>
+  <br>
 
   <%= submit_tag "Log in" %>
 <% end %>
