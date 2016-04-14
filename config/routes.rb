@@ -4,7 +4,9 @@ Rails.application.routes.draw do
         resources :posts
     end
   end
+
   resources :users
+
   resources :sessions, only: [:new, :create, :destroy]
 
   get "/register", to: "users#new"
