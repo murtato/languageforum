@@ -1,10 +1,10 @@
 <h1>Recent Conversations</h1>
 
 <ul>
-  <% @conversations.each do |conversation| %>
+  <% @conversations.each do |c| %>
     <li>
-      <strong><%= conversation.time %></strong> - <%= conversation.content %>
-      <%= link_to "More info", conversation_path(conversation) %>
+      <%= c.title %>
+      <%= link_to "More Info", language_conversation_path(c.language, c) %>
     </li>
   <% end %>
 </ul>

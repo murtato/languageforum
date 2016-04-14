@@ -1,0 +1,11 @@
+<h1>Welcome to the Language Cafe!</h1>
+<p>A community for language learners of all types. Wander around and find people to teach and learn from below.</p>
+
+<ul>
+  <% @languages.each do |language| %>
+    <li>
+      <strong> <%= language.name %> </strong>
+      <%= link_to "More info", language_path(language) %>
+    </li>
+  <% end %>
+</ul>

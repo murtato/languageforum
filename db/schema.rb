@@ -11,17 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412191910) do
+ActiveRecord::Schema.define(version: 20160413193007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "conversations", force: :cascade do |t|
-    t.string   "content"
-    t.datetime "time"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "title"
+    t.integer  "language_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
+
+  add_index "conversations", ["language_id"], name: "index_conversations_on_language_id", using: :btree
 
   create_table "conversations_users", id: false, force: :cascade do |t|
     t.integer "conversation_id", null: false
@@ -30,17 +32,25 @@ ActiveRecord::Schema.define(version: 20160412191910) do
 
   create_table "languages", force: :cascade do |t|
     t.string   "name"
-    t.integer  "language_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "languages_users", id: false, force: :cascade do |t|
+    t.integer "language_id", null: false
+    t.integer "user_id",     null: false
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string   "conversation_id"
+    t.text     "content"
+    t.integer  "conversation_id"
+    t.integer  "user_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "content"
   end
+
+  add_index "posts", ["conversation_id"], name: "index_posts_on_conversation_id", using: :btree
+  add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"
@@ -50,4 +60,7 @@ ActiveRecord::Schema.define(version: 20160412191910) do
     t.datetime "updated_at",      null: false
   end
 
+  add_foreign_key "conversations", "languages"
+  add_foreign_key "posts", "conversations"
+  add_foreign_key "posts", "users"
 end

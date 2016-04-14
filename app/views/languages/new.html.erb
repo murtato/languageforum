@@ -1,0 +1,14 @@
+<h1>Don't see a language you can teach or learn?</h1>
+
+<%= form_for @language do |f| %>
+
+    <div>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+    </div><br>
+
+    <%= f.submit "Add this language" %><br><br>
+
+<% end %><br>
+
+<%= link_to "Back to the Cafe!", languages_path %>

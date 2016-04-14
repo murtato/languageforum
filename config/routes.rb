@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
-  resources :conversations, except: [:destroy]
+  resources :languages do
+    resources :conversations do
+        resources :posts
+    end
+  end
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :posts
+
   get "/register", to: "users#new"
   get "/login", to: "sessions#new"
 
-  root "conversations#index"
+  root "languages#index"
 
-  delete "users/:id" => "users#destroy"
+  # delete "users/:id" => "users#destroy"
+  # delete "languages/:id" => "languages#destroy"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
   before_action :authorize, except: [:index, :new, :create, :show]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :only_this_user, only: [:edit, :update, :destroy]
 # might have to add the before_action line for Posts or Users as well
 
   def index
@@ -20,6 +22,7 @@ class UsersController < ApplicationController
 
     if user.save
       flash[:notice] = 'You have successfully signed up!'
+      session[:user_id] = user.id
       redirect_to user_path(user)
     else
       flash[:error] = 'Registration failed!'
@@ -34,7 +37,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
 
-    if @user.update_attributes(params.require(:user).permit(:name, :email))
+    if @user.update_attributes(user_params)
       redirect_to users_path
     else
       render :edit
@@ -51,6 +54,14 @@ class UsersController < ApplicationController
   # Implement Strong Params
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
+  end
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
+  def only_this_user
+    redirect_to languages_path, notice: "You can't edit other users' accounts!" if current_user != @user
   end
 
 end

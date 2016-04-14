@@ -1,14 +1,14 @@
 <h1>Edit This Conversation's Title!</h1>
 
-<%= form_for @conversation do |f| %>
+<%= form_for language_conversations_path(@conversation.language) do |f| %>
 
     <div>
-        <%= f.label :content %>
-        <%= f.text_field :content %>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
     </div>
 
     <%= f.submit "Submit these changes!" %>
 
 <% end %>
 
-<%= link_to "Back to the list!", conversations_path %>
+<%= link_to "Back to the list!", language_conversations_path %>

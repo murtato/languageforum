@@ -1,0 +1,7 @@
+<h1> Welcome <%= current_user.name %>! </h1>
+
+<p>View all your posts here</p>
+
+<%= link_to "Back to the Conversation", conversations_path %><br>
+<%= link_to "Edit Post", edit_post_path(@post) %><br>
+<%= link_to "Delete Post", post_path, method: :delete, data: { confirm: "Would you like to delete this post?"} %><br>

@@ -1,7 +1,7 @@
-<h1> Welcome <%= @user.name %>! </h1>
+<h1> Welcome <%= current_user.name %>! </h1>
 
 <p>Find a language exchange buddy today!</p>
 
-<%= link_to "Home", conversations_path %><br>
-<%= link_to "Edit Your Account Details", edit_user_path(@user) %><br>
-<%= link_to "Delete your Account!", user_path, method: :delete, data: { confirm: "Deleting your account will not delete posts or conversations you have made with this account name. Are you sure you want to delete your account?"} %><br>
+<%= link_to "Home", languages_path %><br>
+<%= link_to "Edit Account Details", edit_user_path(@user) %><br>
+<%= link_to "Delete your Account?", user_path, method: :delete, data: { confirm: "Deleting your account will not delete posts or conversations you have made with this account name. Are you sure you want to delete your account?"} %><br>

@@ -1,14 +1,14 @@
 <h1>Start a new language exchange!</h1>
 
-<%= form_for @conversation do |f| %>
+<%= form_for [@language, @conversation] do |f| %>
 
     <div>
-        <%= f.label :content %>
-        <%= f.text_field :content %>
-    </div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </div><br>
 
     <%= f.submit "Start new conversation!" %>
 
-<% end %>
+<% end %><br>
 
-<%= link_to "Home", conversations_path %>
+<%= link_to "Back to #{@language.name}", language_path(@language) %>

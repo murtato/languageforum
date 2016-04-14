@@ -4,7 +4,7 @@ class ConversationsController < ApplicationController
 # might have to add the before_action line for Posts or Users as well
 
   def index
-    @conversations = Conversation.all
+    @conversations = Conversation.where(language_id: params[:language_id])
   end
 
   def show
@@ -12,14 +12,17 @@ class ConversationsController < ApplicationController
   end
 
   def new
-    @conversation = Conversation.create
+    @conversation = Conversation.new
+    @language = Language.find(params[:language_id])
   end
 
   def create
-    @conversation = Conversation.new(conversation.params)
+    @conversation = Conversation.new(conversation_params)
+    @language = Language.find(params[:language_id])
+    @conversation.language = @language
 
     if @conversation.save
-      redirect_to :conversations
+      redirect_to language_conversation_path(@language, @conversation)
     else
       render :new
     end
@@ -31,16 +34,23 @@ class ConversationsController < ApplicationController
 
   def update
     @conversation = Conversation.find(params[:id])
-    if @conversation.update_attributes(params.require(:conversation).permit(:content))
-      redirect_to conversations_path
+
+    if @conversation.update_attributes(conversation_params)
+      redirect_to language_conversations_path(params[:language_id])
     else
       render :edit
     end
   end
 
+  def destroy
+    @conversation = Conversation.find(params[:id])
+    @conversation.destroy
+    redirect_to language_conversations_path(params[:language_id])
+  end
+
   private
-  def bean_params
-    params.require(:bean).permit(:name, :roast, :origin, :quantity)
+  def conversation_params
+    params.require(:conversation).permit(:title)
   end
 
 end

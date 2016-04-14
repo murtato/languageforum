@@ -1,0 +1,11 @@
+<h1>Welcome to the Language Cafe!</h1>
+<p>View a history of all your posts here.</p>
+
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <strong> <%= post.content %> </strong><% post.conversation_id %>
+      <!-- <%= link_to "More info", post_path(post) %> -->
+    </li>
+  <% end %>
+</ul>
