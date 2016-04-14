@@ -10,5 +10,5 @@
 <%= link_to "Back to this Language's Cafes!", language_conversations_path(@conversation.language) %><br>
 <%= link_to "Edit this conversation's title!", edit_language_conversation_path(@conversation.language, @conversation) %><br>
 <%= link_to "Delete this conversation?", language_conversation_path(@conversation.language, @conversation), method: :delete, data: {confirm: "Are you sure you want to delete this conversation?"} %><br>
-<%= link_to "Add a post", new_language_conversation_post_path(@conversation.language, @conversation) %><br>
+<%= link_to "Add a post", new_language_conversation_post_path(@conversation.language, @conversation) %><br><br>
 <%= @conversation.updated_at %><br>

@@ -1,6 +1,8 @@
 <h1>Welcome to the Language Cafe!</h1>
 <p>View a history of all your posts here.</p>
 
+<%= will_paginate @posts %>
+
 <ul>
   <% @posts.each do |post| %>
     <li>

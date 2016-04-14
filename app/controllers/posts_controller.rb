@@ -4,7 +4,7 @@ before_action :authorize, except: [:index, :show]
 # Might have to consider more authorized actions
 
   def index
-    @posts = Post.all
+    @posts = Post.all.page(params[:page]).per_page(10)
   end
 
   def show
@@ -42,6 +42,12 @@ before_action :authorize, except: [:index, :show]
     else
       render :edit
     end
+  end
+
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to language_conversation_path
   end
 
   private

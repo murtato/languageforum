@@ -4,8 +4,8 @@
 <ul>
   <% @languages.each do |language| %>
     <li>
-      <strong> <%= language.name %> </strong>
-      <%= link_to "More info", language_path(language) %>
+      <strong> <%= language.name %> </strong><br>
+      <%= link_to "See Conversations", language_path(language) %><br><br>
     </li>
   <% end %>
 </ul>

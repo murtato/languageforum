@@ -17,11 +17,12 @@
   </div>
 
   <div>
-    <%= f.label :password_confirmation, "Confirmation" %>
+    <%= f.label :password_confirmation, "Confirm password" %>
     <%= f.password_field :password_confirmation, class: 'form-control' %>
   </div>
+  <br>
 
   <%= f.submit "Submit changes" %>
 <% end %>
-
+<br>
 <%= link_to "Back to the Cafe!", languages_path %>

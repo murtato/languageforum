@@ -4,7 +4,7 @@
   <% @conversations.each do |c| %>
     <li>
       <%= c.title %>
-      <%= link_to "More Info", language_conversation_path(c.language, c) %>
+      <%= link_to "Enter Cafe", language_conversation_path(c.language, c) %>
     </li>
   <% end %>
 </ul>
