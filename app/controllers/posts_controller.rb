@@ -9,6 +9,8 @@ before_action :authorize, except: [:index, :show]
 
   def show
     @post = Post.find(params[:id])
+    @language = Language.find(params[:language_id])
+    @conversation = Conversation.find(params[:conversation_id])
   end
 
   def new
@@ -31,14 +33,17 @@ before_action :authorize, except: [:index, :show]
     end
   end
 # Did one of the TA's instruct on this redirect_to logic?
-  def edit
-    @post = Post.find(params[:id])
-  end
+  # def edit
+  #   @post = Post.find(params[:id])
+  #   @language = Language.find(params[:language_id])
+  #   @conversation = Conversation.find(params[:conversation_id])
+  # end
 
   def update
     @post = Post.find(params[:id])
+
     if @post.update_attributes(post_params)
-      redirect_to posts_path
+      redirect_to language_conversation_posts_path
     else
       render :edit
     end
@@ -47,7 +52,8 @@ before_action :authorize, except: [:index, :show]
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    redirect_to language_conversation_path
+    @conversation = Conversation.find(params[:conversation_id])
+    redirect_to language_conversation_path(@conversation.language, @conversation)
   end
 
   private

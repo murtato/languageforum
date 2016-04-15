@@ -1,14 +1,19 @@
 <h1> <%= @conversation.title %> </h1>
 
-<p>This conversation was started <%= @conversation.created_at %>.</p>
+<p>Started <%= @conversation.created_at %>, most recent update <%= @conversation.updated_at %></p><br>
 <p>Post in the conversation if you're interested in learning or teaching!</p><br>
 
 <% @conversation.posts.each do |post| %>
-  <%= post.content %> <br>
+<%= post.content %>
+--
+<%= @conversation.updated_at %><br>
+<!-- <%= link_to "Edit", edit_language_conversation_post_path(@conversation.language.id, @conversation.id, post.id) %> -->
+<!-- | -->
+<%= link_to "Delete", language_conversation_post_path(@conversation.language, @conversation, post), method: :delete, data: { confirm: "Are you sure you want to delete this post?"} %><br>
 <% end %><br><br>
 
-<%= link_to "Back to this Language's Cafes!", language_conversations_path(@conversation.language) %><br>
-<%= link_to "Edit this conversation's title!", edit_language_conversation_path(@conversation.language, @conversation) %><br>
+<%= link_to "Add a post", new_language_conversation_post_path(params[:language_id], @conversation) %><br><br>
+<!-- <%= link_to "Edit this conversation's title!", edit_language_conversation_path(@conversation.language, @conversation) %><br> -->
 <%= link_to "Delete this conversation?", language_conversation_path(@conversation.language, @conversation), method: :delete, data: {confirm: "Are you sure you want to delete this conversation?"} %><br>
-<%= link_to "Add a post", new_language_conversation_post_path(@conversation.language, @conversation) %><br><br>
-<%= @conversation.updated_at %><br>
+<br>
+<%= link_to "Back to this Language's Cafes!", language_path(params[:language_id], @conversation.language) %><br>

@@ -41,7 +41,7 @@ class LanguagesController < ApplicationController
   def destroy
     @language = Language.find(params[:id])
     @language.destroy
-    redirect_to languages_path
+    redirect_to :languages
   end
 
   private
