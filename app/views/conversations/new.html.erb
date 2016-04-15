@@ -1,3 +1,4 @@
+<body class="newc">
 <h1>Start a new language exchange!</h1>
 
 <%= form_for [@language, @conversation] do |f| %>
@@ -12,3 +13,4 @@
 <% end %><br>
 
 <%= link_to "Back to #{@language.name}", language_path(@language) %>
+</body>

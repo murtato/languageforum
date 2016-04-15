@@ -1,6 +1,7 @@
 <h1>Edit your User information</h1>
-
+<body class="bform">
 <%= form_for @user do |f| %>
+
   <div>
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -16,7 +17,7 @@
     <%= f.text_field :password %>
   </div>
 
-  <div>
+  <div class="pwc">
     <%= f.label :password_confirmation, "Confirm password" %>
     <%= f.password_field :password_confirmation, class: 'form-control' %>
   </div>
@@ -26,3 +27,4 @@
 <% end %>
 <br>
 <%= link_to "Back to the Cafe!", languages_path %>
+</body>

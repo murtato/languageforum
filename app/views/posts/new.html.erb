@@ -1,3 +1,4 @@
+<body class="newp">
 <h1>Post a cry for help!</h1>
 
 <%= form_for [@language, @conversation, @post] do |f| %>
@@ -12,3 +13,4 @@
 <% end %>
 
 <%= link_to "Back to #{@conversation.title}", language_conversation_path(@language, @conversation) %>
+</body>

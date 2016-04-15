@@ -1,3 +1,28 @@
+.newc {
+  background-color: rgba(200, 200, 40, 0.2);
+  padding: 5px;
+  margin: 15px;
+  border: 3px solid #FACADE;
+  max-width: 60%;
+}
+
+.cshow {
+  background-color: rgba(200, 200, 40, 0.2);
+  padding: 5px;
+  margin: 15px;
+  border: 3px solid #FACADE;
+  max-width: 60%;
+}
+
+.showpost {
+  background-color: rgba(40, 40, 40, 0.2);
+  padding: 5px;
+  margin: 15px;
+  border: 3px solid rgba(60,60,100,0.3);
+  max-width: 50%;
+  text-align: center;
+}
+
 // Place all the styles related to the conversations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/

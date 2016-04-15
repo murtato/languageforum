@@ -1,11 +1,11 @@
 <h1> <%= @language.name %> </h1>
 
 <% @language.conversations.each do |c| %>
-  <p><%= link_to "Enter Cafe", language_conversation_path(c.language, c) %> - <%= c.title %></p><br>
+  <p class="p"><%= link_to "Enter Cafe", language_conversation_path(c.language, c) %> - <%= c.title %></p>
 <% end %>
-
-<%= link_to "Start Language Exchange", new_language_conversation_path(@language) %><br>
-<%= link_to "Edit this language", edit_language_path(@language) %><br>
-<%= link_to "Delete this language?", language_path, method: :delete, data: { confirm: "Are you sure you want to delete this language?"} %><br>
-<br>
-<%= link_to "Back to the Cafe", languages_path %>
+<ul class="clinks">
+<li><%= link_to "Start Language Exchange", new_language_conversation_path(@language) %></li>
+<li><%= link_to "Edit this language", edit_language_path(@language) %></li>
+<li><%= link_to "Delete this language?", languages_path, method: :delete, data: { confirm: "Are you sure you want to delete this language?"} %></li>
+<li><%= link_to "Back to the Cafe", languages_path %></li>
+</ul>

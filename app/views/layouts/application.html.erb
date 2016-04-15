@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -23,7 +23,6 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="/">Home <span class="sr-only">(current)</span></a></li>
           <% if current_user %>
-            <li></li>
             <li><%= link_to "Edit Account", edit_user_path(current_user.id) %></li>
             <li><%= link_to "Add Language", new_language_path %></li>
             <li><%= link_to "Logout", session_path('dummy'), method: :delete %></li>
@@ -37,5 +36,8 @@
 </nav>
 <body>
 <%= yield %>
+  <footer>
+    <p>&copy; 2015 Victor Tran</p>
+  </footer>
 </body>
 </html>

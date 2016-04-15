@@ -1,27 +1,29 @@
-<h1>Sign Up</h1>
+<body class="signup">
+  <h1>Sign Up</h1>
 
-<%= form_for @user do |f| %>
-  <% flash.each do |key,msg| %>
-    <div><%= msg %></div>
+  <%= form_for @user do |f| %>
+    <% flash.each do |key,msg| %>
+      <div><%= msg %></div>
+    <% end %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br>
+
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+    <br>
+
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <br>
+
+    <%= f.label :password_confirmation %>
+    <%= f.password_field :password_confirmation %>
+    <br>
+
+    <%= f.submit "Register" %>
+
+
   <% end %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br>
-
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <br>
-
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <br>
-
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-  <br>
-
-  <%= f.submit "Register" %>
-
-
-<% end %>
+</body>

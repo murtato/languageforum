@@ -1,11 +1,23 @@
-<h1>Welcome to the Language Cafe!</h1>
-<p>A community for language learners of all types. Wander around and find people to teach and learn from below.</p>
+<div class="jumbotron">
+  <div class="container">
+    <h1>Welcome to the Language Cafe!</h1>
+    <p><p>A community for language learners of all types. Wander around and find people to teach and learn from below.</p>
+  </div>
+</div>
 
-<ul>
-  <% @languages.each do |language| %>
-    <li>
-      <strong> <%= language.name %> </strong><br>
-      <%= link_to "See Cafes", language_path(language) %><br><br>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <!-- Example row of columns -->
+  <div class="row">
+    <div class="col-md-4">
+      <ul>
+        <% @languages.each do |language| %>
+          <li class="l">
+            <h2><%= language.name %></h2><br>
+            <%= link_to "Enter #{language.name} Cafe? >", language_path(language) %><br><br>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+
+</div> <!-- /container -->

@@ -1,3 +1,4 @@
+<body class="showp">
 <h1> Welcome <%= current_user.name %>! </h1>
 
 <p>View all your posts here</p>
@@ -7,3 +8,4 @@
 <%= link_to "Back to the Conversation", language_conversations_path %><br>
 
 <%= link_to "Delete Post", language_conversation_post_path, method: :delete, data: { confirm: "Would you like to delete this post?"} %><br>
+</body>
