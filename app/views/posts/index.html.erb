@@ -3,7 +3,7 @@
 
 <!-- <%= will_paginate @posts %> -->
 
-<ul>
+<ul style="list-style:none;">
   <% @posts.each do |post| %>
     <li>
       <strong> <%= post.content %> </strong><% post.conversation_id %>

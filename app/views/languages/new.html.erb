@@ -1,13 +1,15 @@
-<h1 class="h1">Don't see a language you can teach or learn?</h1>
-<%= form_for @language do |f| %>
+<body class="newlang">
+  <h1 class="h1">Don't see a language you can teach or learn?</h1>
+  <%= form_for @language do |f| %>
 
-    <div class="add">
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-    </div><br>
+      <div class="add">
+          <%= f.label :Language %>
+          <%= f.text_field :name %>
+      </div><br>
 
-    <%= f.submit "Add this language" %><br><br>
+      <%= f.submit "Add this language" %><br><br>
 
-<% end %><br>
+  <% end %><br>
 
-<%= link_to "Back to the Cafe!", languages_path %>
+  <%= link_to "Back to the Cafe!", languages_path %>
+</body>
