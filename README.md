@@ -14,4 +14,7 @@ For installation instructions, follow the directions below:
     8. Open your browser, enter "localhost:3000" into your address bar, and press 'Enter'.
     9. The app should now be fully open to your use! Enjoy!
 
+Pivotal Tracker link:
+https://www.pivotaltracker.com/n/projects/1571149
+
 More features coming soon!
